@@ -3,7 +3,7 @@
  */
 import { Component, ViewEncapsulation } from '@angular/core';
 
-import { AppState } from './app.service';
+import { AppState } from '../app.service';
 
 /*
  * App Component
@@ -11,15 +11,12 @@ import { AppState } from './app.service';
  */
 @Component({
   selector: 'app',
-  encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
-  template: `
-    <router-outlet></router-outlet>
-  `
+  templateUrl: './main.component.html'
 })
-export class AppComponent {
+export class MainComponent {
+  angularclassLogo = 'assets/img/angularclass-avatar.png';
+  name = 'Angular 2 Webpack Starter';
+  url = 'https://twitter.com/AngularClass';
 
   constructor(
     public appState: AppState) {

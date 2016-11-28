@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
+import { MainComponentGuard } from './main/main.guard'
+import { UserService } from './shared/services/user/user.service'
+
 @Injectable()
 export class DataResolver implements Resolve<any> {
   constructor() {
@@ -15,5 +18,7 @@ export class DataResolver implements Resolve<any> {
 
 // an array of services to resolve routes with data
 export const APP_RESOLVER_PROVIDERS = [
-  DataResolver
+  DataResolver,
+  MainComponentGuard,
+  UserService
 ];

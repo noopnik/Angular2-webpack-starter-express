@@ -33,13 +33,18 @@ app.use(require('morgan')('short'));
 app.get("/", function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
-// app.get("/multientry", function(req, res) {
-//   res.sendFile(__dirname + '/index-multientry.html');
-// });
+
+app.get('/api/hello', (req, res) => res.status(200).json({message:'hello11'}));
+
+app.get('/api/user/checkAuth', (req, res) => {
+  console.log(req);
+  res.status(200).json({user:'Nikita'});
+});
+
 
 if (require.main === module) {
   const server = http.createServer(app);
-  server.listen(process.env.PORT || 1616, function() {
+  server.listen(process.env.PORT || 3000, function() {
     console.log("Listening on %j", server.address());
   });
 }
