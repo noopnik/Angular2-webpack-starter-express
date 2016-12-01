@@ -21,6 +21,9 @@ import '@angularclass/hmr';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
+// My 3rd party vendors
+import 'angular2-jwt';
+
 if ('production' === ENV) {
   // Production
 

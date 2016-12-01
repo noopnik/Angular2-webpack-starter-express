@@ -1,6 +1,6 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
@@ -19,7 +19,7 @@ import { AboutComponent } from './about';
 import { NoContentComponent } from './no-content';
 import { XLarge } from './home/x-large';
 
-import { LoginComponent} from './user/login';
+import { LoginFormComponent} from './user/login';
 import { MainComponent } from './main';
 
 // Application wide providers
@@ -44,13 +44,14 @@ type StoreType = {
     AboutComponent,
     HomeComponent,
     NoContentComponent,
-    LoginComponent,
+    LoginFormComponent,
     MainComponent,
     XLarge
   ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     AppRoutingModule
   ],

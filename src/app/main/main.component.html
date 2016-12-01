@@ -1,25 +1,37 @@
 <nav>
   <span>
-    <a [routerLink]=" ['/'] ">
+    <a routerLink='/'>
       Index
     </a>
   </span>
   |
   <span>
-    <a [routerLink]=" ['/home'] ">
+    <a routerLink="/home">
       Home
     </a>
   </span>
   |
   <span>
-    <a [routerLink]=" ['/detail'] ">
+    <a routerLink='/detail'>
       Detail
     </a>
   </span>
   |
   <span>
-    <a [routerLink]=" ['/about'] ">
+    <a routerLink='/about'>
       About
+    </a>
+  </span>
+  |
+  <span>
+    <a routerLink='/login'>
+      Login
+    </a>
+  </span>
+    |
+  <span>
+    <a (click)="logout()">
+      Logout
     </a>
   </span>
 </nav>

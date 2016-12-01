@@ -1,7 +1,7 @@
-import { NgModule }             from '@angular/core';
+import { NgModule }  from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
-import { LoginComponent } from './user/login';
+import { LoginFormComponent } from './user/login';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { MainComponent } from './main'
@@ -11,19 +11,16 @@ import { MainComponentGuard } from './main/main.guard'
 
 const appRoutes: Routes = [
   { path: '',      component: MainComponent, canActivate: [MainComponentGuard],
-    children: [{
-      path: '',
-      children: [
+    children: [
       { path: 'home',  component: HomeComponent },
       { path: 'about', component: AboutComponent },
-      ]
-    }]
+      {
+        path: 'detail', loadChildren: () => System.import('./+detail')
+          .then((comp: any) => comp.default),
+      },
+    ]
    },
-  { path: 'login', component: LoginComponent },
-  {
-    path: 'detail', loadChildren: () => System.import('./+detail')
-      .then((comp: any) => comp.default),
-  },
+  { path: 'login', component: LoginFormComponent },
   { path: '**',    component: NoContentComponent },
 ];
 

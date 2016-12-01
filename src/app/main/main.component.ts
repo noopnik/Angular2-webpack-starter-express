@@ -2,8 +2,9 @@
  * Angular 2 decorators and services
  */
 import { Component, ViewEncapsulation } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { AppState } from '../app.service';
+import { UserService} from '../shared/services/user/user.service'
 
 /*
  * App Component
@@ -19,7 +20,10 @@ export class MainComponent {
   url = 'https://twitter.com/AngularClass';
 
   constructor(
-    public appState: AppState) {
+    public appState: AppState,
+    private router: Router,
+    private userService: UserService
+    ) {
 
   }
 
@@ -27,6 +31,9 @@ export class MainComponent {
     console.log('Initial App State', this.appState.state);
   }
 
+  logout() {
+    this.userService.logout();
+  }
 }
 
 /*

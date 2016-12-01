@@ -1,0 +1,41 @@
+<section>
+    <h1>Model-based Form Example:</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <p>
+          <label>Login:</label>
+          <input type="text" formControlName="login" required>
+          <span *ngIf="formErrors.login">{{ formErrors.login }}</span>
+      </p>
+      <p>
+          <label>Password:</label>
+          <input type="password" formControlName="password" required>
+          <span *ngIf="formErrors.password">{{ formErrors.password }}</span>
+      </p>
+      <p>
+        <label>Gender</label>
+        <label>
+          <input type="radio" name="gender" value="Male" formControlName="gender">
+          Male
+        </label>
+      </p>
+      <div class="radio">
+        <label>
+          <!-- This works the same way for radio and checkboxes as can be seen below -->
+          <input type="radio" name="gender" value="Female" formControlName="gender">
+          Female
+        </label>
+      </div>
+      <div class="form-group">
+        <label>Activities</label>
+      </div>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="hiking" name="hiking" [formControl]="form.controls['hiking']"> Hiking
+      </label>
+      <label class="checkbox-inline">
+        <input type="checkbox" value="running" name="running" [formControl]="form.controls['running']"> Running
+      </label>
+      <p>
+        <button type="submit" [disabled]='!form.valid'>Submit</button>
+      </p>
+    </form>
+</section>

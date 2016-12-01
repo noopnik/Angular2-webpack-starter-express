@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AppState } from '../app.service';
 import { Title } from './title';
 import { XLarge } from './x-large';
+import { UserService } from '../shared/services/user/user.service';
 
 @Component({
   // The selector is what angular internally uses
@@ -22,7 +23,11 @@ export class HomeComponent {
   // Set our default values
   localState = { value: '' };
   // TypeScript public modifiers
-  constructor(public appState: AppState, public title: Title) {
+  constructor(
+    public appState: AppState,
+    public title: Title,
+    private userService: UserService
+    ) {
 
   }
 
@@ -35,5 +40,13 @@ export class HomeComponent {
     console.log('submitState', value);
     this.appState.set('value', value);
     this.localState.value = '';
+  }
+
+  sendData() {
+    this.userService.sendData();
+  }
+
+   sendDataWrong() {
+    this.userService.sendDataWrong();
   }
 }

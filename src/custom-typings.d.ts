@@ -131,3 +131,12 @@ interface ErrorConstructor extends ErrorStackTraceLimit {}
 interface NodeRequireFunction extends Es6PromiseLoader  {}
 interface NodeModule extends WebpackModule {}
 interface Global extends GlobalEnvironment  {}
+
+
+// My declare 3rd party libraries
+
+// declare module 'angular2-jwt' {
+//   function angular2Jwt(token: string): any;
+//   namespace angular2Jwt {}
+//   export = angular2Jwt;
+// }

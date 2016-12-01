@@ -5,22 +5,16 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class MainComponentGuard implements CanActivate {
-  constructor(private _userService: UserService, private _router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   canActivate() {
-    return this._userService.isLoggedIn()
-      .map( result => {
-        console.log(result);
-        if (result.user) {
-          return true;
-        } else {
-          this._router.navigate(['/login'])
-          return false;
-        }
-      }).catch( err => {
-        console.log(err);
-        this._router.navigate(['/login'])
-        return Observable.of(false);
-      });
+    if (this.userService.loggedIn()) {
+      return true;
+    } else {
+      this.router.navigate(['/login'])
+      return false;
+    }
+
   }
+
 }

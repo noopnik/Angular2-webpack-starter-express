@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
-import { MainComponentGuard } from './main/main.guard'
-import { UserService } from './shared/services/user/user.service'
+import { MainComponentGuard } from './main/main.guard';
+import { UserService } from './shared/services/user/user.service';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 @Injectable()
 export class DataResolver implements Resolve<any> {
@@ -20,5 +21,7 @@ export class DataResolver implements Resolve<any> {
 export const APP_RESOLVER_PROVIDERS = [
   DataResolver,
   MainComponentGuard,
-  UserService
+  UserService,
+  AUTH_PROVIDERS
+
 ];
