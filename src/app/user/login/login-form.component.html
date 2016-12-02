@@ -1,5 +1,8 @@
-<section>
-    <h1>Model-based Form Example:</h1>
+<div class="containter col-xs-offset-3 col-xs-9">
+  <div class="col-xs-12">
+    <h2>Model-based Form Example:</h2>
+  </div>
+  <div class="col-xs-12">
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <p>
           <label>Login:</label>
@@ -11,31 +14,29 @@
           <input type="password" formControlName="password" required>
           <span *ngIf="formErrors.password">{{ formErrors.password }}</span>
       </p>
-      <p>
+      <div class="form-group">
         <label>Gender</label>
-        <label>
+        <label class="checkbox-inline">
           <input type="radio" name="gender" value="Male" formControlName="gender">
           Male
         </label>
-      </p>
-      <div class="radio">
-        <label>
-          <!-- This works the same way for radio and checkboxes as can be seen below -->
+        <label class="checkbox-inline">
           <input type="radio" name="gender" value="Female" formControlName="gender">
           Female
         </label>
       </div>
       <div class="form-group">
         <label>Activities</label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="hiking" name="hiking" [formControl]="form.controls['hiking']"> Hiking
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" value="running" name="running" [formControl]="form.controls['running']"> Running
+        </label>
       </div>
-      <label class="checkbox-inline">
-        <input type="checkbox" value="hiking" name="hiking" [formControl]="form.controls['hiking']"> Hiking
-      </label>
-      <label class="checkbox-inline">
-        <input type="checkbox" value="running" name="running" [formControl]="form.controls['running']"> Running
-      </label>
       <p>
-        <button type="submit" [disabled]='!form.valid'>Submit</button>
+        <button class="btn btn-primary" type="submit" [disabled]='!form.valid'>Submit</button>
       </p>
     </form>
-</section>
+  </div>
+</div>

@@ -147,6 +147,28 @@ module.exports = function (options) {
           use: 'file-loader'
         },
 
+        /* File loader for supporting sass and bootstrap
+         * OWN addings
+         * See https://github.com/AngularClass/angular2-webpack-starter/wiki/How-to-use-Bootstrap-3-and-Sass-and-ng2-bootstrap
+         */
+        // {
+        //   test: /\.(sass|scss)$/,
+        //   loaders: ['css-to-string-loader', 'css-loader?sourceMap', 'resolve-url', 'sass-loader?sourceMap']
+        // },
+        // {
+        //   test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url?limit=10000&minetype=application/font-woff"
+        // },
+        // {
+        //   test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file"
+        // },
+        {
+                 test: /\.scss$/,
+                 loaders: ['raw-loader', 'sass-loader']
+        },
+        {
+                  test: /\.(woff2?|ttf|eot|svg)$/, 
+                  loader: 'url?limit=10000' 
+        },
       ],
 
     },
