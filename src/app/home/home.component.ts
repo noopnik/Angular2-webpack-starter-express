@@ -26,6 +26,8 @@ import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
 export class HomeComponent {
   // Set our default values
   localState = { value: '' };
+  slideToggleModel = true;
+
   // TypeScript public modifiers
   constructor(
     public appState: AppState,
